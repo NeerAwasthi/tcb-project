@@ -54,7 +54,7 @@ export const summarizeNote = async (req, res) => {
   const { text } = req.body;
   const API_KEY = process.env.GEMINI_API_KEY;
 
-  // The user's desired model URL, without the API key in it.
+  
   const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
 
   if (!text) {
@@ -62,21 +62,21 @@ export const summarizeNote = async (req, res) => {
   }
 
   if (!API_KEY) {
-    // This check is now more important than ever.
+    
     return res.status(500).json({ error: "API key is not configured on the server. Please check the .env file." });
   }
 
   try {
     const response = await axios.post(
       API_URL,
-      { // The request body
+      { 
         contents: [{
           parts: [{ text: `Summarize the following text concisely:\n\n${text}` }]
         }]
       },
-      { // The configuration object for axios
+      { 
         headers: {
-          'x-goog-api-key': API_KEY, // <-- Send the API key as a header
+          'x-goog-api-key': API_KEY, 
           'Content-Type': 'application/json'
         }
       }

@@ -21,12 +21,12 @@ const SummarizerPage = ({ onNoteAdded }) => {
     setSummary("");
 
     try {
-      // Call your own backend endpoint now
+      
       const { data } = await api.post("/notes/summarize", { text: inputText });
       setSummary(data.summary);
     } catch (err) {
       console.error("Summarization call failed:", err);
-      // Provide a more user-friendly error from your own server
+      
       setError(err.response?.data?.error || "An unexpected error occurred.");
     } finally {
       setLoading(false);
@@ -49,7 +49,7 @@ const SummarizerPage = ({ onNoteAdded }) => {
     }
   };
   
-  // ... The JSX (return statement) for this component remains exactly the same
+  
   return (
     <main className="container">
       <div className="left-pane" style={{ gap: "18px" }}>
