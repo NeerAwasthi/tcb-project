@@ -1,0 +1,9 @@
+{
+  "name": "notes-manager",
+  "scripts": {
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npx vite --port 5173\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
