@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
-// No need to import axios here anymore
 
 const SummarizerPage = ({ onNoteAdded }) => {
   const [inputText, setInputText] = useState("");
